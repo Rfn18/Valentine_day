@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luv u</title>
+  </head>
+  <style>
+    @font-face {
+      font-family: "Poppins";
+      src: url("/Poppins-Regular.ttf");
+    }
+    *,
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100%;
+      background-color: #f9c5c8;
+    }
+    .container-envelope {
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      height: 60vh;
+      width: 100%;
+    }
+
+    .envelope-middle-up {
+      border-left: 140px solid transparent;
+      border-right: 140px solid transparent;
+      border-bottom: 82px solid transparent;
+      border-top: 98px solid #ff3333;
+      transform-origin: top;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .front {
+      position: absolute;
+      width: 0;
+      height: 0;
+      z-index: 3;
+    }
+
+    .pocket {
+      border-left: 140px solid #ff9999;
+      border-right: 140px solid #ff9999;
+      border-bottom: 90px solid #fd8787;
+      border-top: 90px solid transparent;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      box-shadow: 0px 16px 31px -13px rgba(0, 0, 0, 0.2);
+    }
+    .envelope-back {
+      position: absolute;
+      height: 240;
+      border-top: solid 100px #f9c5c8;
+      border-left: solid 150px transparent;
+      border-right: solid 150px transparent;
+      transform-origin: top;
+      top: 13.8em;
+      z-index: -1;
+      box-shadow: inset 0px 0px 19px 0px rgba(0, 0, 0, 0.75);
+    }
+
+    .letter {
+      position: absolute;
+      width: 250px;
+      height: 160px;
+      background: #f9c5c8;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 26px rgba(0, 0, 0, 0.12);
+      border-radius: 5px;
+      z-index: -1;
+    }
+
+    p {
+      font-family: "Poppins";
+      color: #ff3333;
+      font-size: 14px;
+    }
+
+    .words {
+      position: absolute;
+      left: 10%;
+      width: 80%;
+      height: 14%;
+    }
+
+    .words.line1 {
+      top: 10%;
+    }
+
+    .words.line1 p {
+      font-weight: 700;
+    }
+
+    .words.line2 {
+      top: 30%;
+    }
+
+    .words.line2 p {
+      font-weight: 500;
+      font-size: 12px;
+    }
+
+    .hearts {
+      position: absolute;
+      top: 45%;
+      left: 0;
+      right: 0;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: 0;
+      right: 10%;
+      pointer-events: none;
+    }
+
+    .heart:before,
+    .heart:after {
+      position: absolute;
+      content: "";
+      left: 30px;
+      top: 0;
+      width: 30px;
+      height: 55px;
+      background: #d00000;
+      border-radius: 50px 50px 0 0;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+      pointer-events: none;
+    }
+
+    .heart:after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    .a1 {
+      left: 30%;
+      transform: scale(0.6);
+      opacity: 1;
+      -webkit-animation-delay: 0.7s;
+      animation-delay: 0.7s;
+    }
+
+    .a2 {
+      left: 60%;
+      transform: scale(1);
+      opacity: 1;
+
+      -webkit-animation-delay: 0.7s;
+      animation-delay: 0.7s;
+    }
+
+    .a3 {
+      left: 15%;
+      transform: scale(0.8);
+      opacity: 1;
+    }
+
+    .open .a1 {
+      animation: slideUp 3s ease;
+      transition: z-index 0.4s;
+      animation-fill-mode: forwards;
+      -webkit-animation-fill-mode: forwards;
+      z-index: 1;
+    }
+    .open .a2 {
+      animation: slideUp 3s ease;
+      animation-delay: 0.3s;
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
+      z-index: 1;
+    }
+    .open .a3 {
+      animation: slideUp 3s ease;
+      transition: z-index 0.4s;
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
+      z-index: 1;
+    }
+
+    @-webkit-keyframes slideUp {
+      0% {
+        top: 0;
+      }
+      100% {
+        top: -600px;
+      }
+    }
+    @keyframes slideUp {
+      0% {
+        top: 0;
+      }
+      100% {
+        top: -600px;
+      }
+    }
+    @-webkit-keyframes sideSway {
+      0% {
+        margin-left: 0px;
+      }
+      100% {
+        margin-left: 50px;
+      }
+    }
+    @keyframes sideSway {
+      0% {
+        margin-left: 0px;
+      }
+      100% {
+        margin-left: 50px;
+      }
+    }
+
+    .open .envelope-middle-up {
+      transform: rotateX(180deg);
+      transition: transform 0.4s ease, z-index 0.6s;
+      z-index: -1;
+    }
+    .close .envelope-middle-up {
+      transform: rotateY(0px);
+      transition: transform 0.4s ease, z-index 1s;
+      z-index: -1;
+    }
+
+    .close .letter {
+      transform: translateY(0px);
+      transition: transform 1s ease, z-index 1s;
+      z-index: 1;
+    }
+
+    .open .letter {
+      transform: translateY(-60px);
+      transition: transform 0.4s 0.6s ease, z-index 0.6s;
+      z-index: 1;
+    }
+    .container-btn {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2em;
+      gap: 1em;
+    }
+    .btn {
+      font-size: 16px;
+      font-family: "Poppins";
+      font-weight: 700;
+      color: #d00000;
+      border: #d00000 2px solid;
+      padding: 0.5em 1em;
+      background-color: transparent;
+      border-radius: 5px;
+    }
+    .btn:hover {
+      background-color: #d00000;
+      color: #fff;
+      transition: ease 0.3s;
+    }
+  </style>
+  <body>
+    <div class="container-envelope">
+      <div class="front pocket"></div>
+      <div class="envelope-middle-up"></div>
+      <div class="letter">
+        <div class="words line1"><p>kaka cantikk</p></div>
+        <div class="words line2">
+          <p>Mau ngucapin happy valentine dayy, moga suka yaaa</p>
+        </div>
+      </div>
+      <div class="hearts">
+        <div class="heart a1"></div>
+        <div class="heart a2"></div>
+        <div class="heart a3"></div>
+      </div>
+    </div>
+    <div class="container-btn">
+      <button class="btn" onclick="Open()">Open</button>
+      <button class="btn" onclick="Reset()">Reset</button>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
