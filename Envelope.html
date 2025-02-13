@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Luv u</title>
   </head>
@@ -11,20 +15,20 @@
       <div class="front pocket"></div>
       <div class="envelope-middle-up"></div>
       <div class="letter">
-        <div class="words line1"><p>kaka cantikk</p></div>
+        <i
+          class="fa-solid fa-up-right-and-down-left-from-center"
+          id="fullSize"
+        ></i>
+        <div class="words line1"><h1 id="w_1">Hii sayangg</h1></div>
         <div class="words line2">
-          <p>Mau ngucapin happy valentine dayy, moga suka yaaa</p>
+          <p id="w_2">Happy valentine!</p>
+          <p id="w_3">Maaf ya cuma bisa ngasih kamu ini :(</p>
         </div>
-      </div>
-      <div class="hearts">
-        <div class="heart a1"></div>
-        <div class="heart a2"></div>
-        <div class="heart a3"></div>
       </div>
     </div>
     <div class="container-btn">
-      <button class="btn" onclick="Open()">Open</button>
-      <button class="btn" onclick="Reset()">Reset</button>
+      <button class="btn-open btn" onclick="Open()">Open</button>
+      <button class="btn-close btn" onclick="Reset()">Reset</button>
     </div>
   </body>
   <script src="script.js"></script>
