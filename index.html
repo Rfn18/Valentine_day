@@ -27,7 +27,37 @@
       />
       <h1>Aku tau kok kamu bakal milih itu, hehe</h1>
     </div>
-    
   </body>
-  <script src="script.js"></script>
+  <script src="script.js">
+        const messages = [
+     "Beneran kak?",
+      "Eh benerann??",
+      "serius",
+      "Sayangg ngga mau beneran?",
+      "Araaa",
+      "Kak raa mau nih? :(",
+      "Pliss",
+      "Kakk pliss mauu :((",
+    ];
+
+    let messageIndex = 0;
+    let afterPage = document.querySelector(".after");
+
+    function handleNoClick() {
+      const noButton = document.querySelector(".no-button");
+      const yesButton = document.querySelector(".yes-button");
+      noButton.textContent = messages[messageIndex];
+      messageIndex = (messageIndex + 1) % messages.length;
+      const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+      yesButton.style.fontSize = `${currentSize * 1.5}px`;
+    }
+
+    function handleYesClick() {
+      choise.classList.add("hidden");
+      afterPage.classList.add("show");
+      setTimeout(() => {
+        window.location.href = "Envelope.html";
+      }, 2000);
+    }
+  </script>
 </html>

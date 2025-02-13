@@ -56,11 +56,11 @@ function Reset() {
   letterContainer.classList.add("minimize");
 }
 
-document.getElementById("fullSize").addEventListener("click", () => {
+function fullSize() {
   let front = document.querySelector(".front");
   letterContainer.classList.toggle("full");
   front.classList.toggle("zindex");
-});
+}
 
 // Messeage
 const messages = [
@@ -71,7 +71,7 @@ const messages = [
   "Araaa",
   "Kak raa mau nih? :(",
   "Pliss",
-  "Kakk pliss mauu :((",
+  "Kakk pliss mauu :((",
 ];
 
 let messageIndex = 0;
@@ -93,5 +93,3 @@ function handleYesClick() {
     window.location.href = "Envelope.html";
   }, 2000);
 }
-
-// audio
